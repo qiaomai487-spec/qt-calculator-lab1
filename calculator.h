@@ -16,7 +16,7 @@ class QKeyEvent;
  *
  * 鼠标点击按钮和键盘按键最终都会调用同一组内部处理函数
  * （enterDigit / enterDot / applyOperator / evaluate / backspace / clearAll），
- * 从而保证两种输入方式的行为一致，也避免重复代码。
+ * 从而保证两种输入方式的行为完全一致，也避免了重复代码。
  */
 class Calculator : public QWidget
 {
@@ -46,14 +46,18 @@ private:
     // ---- 内部工具 ----
     void initConnections();
     void setDisplayText(const QString &text);
+    void setExpressionText(const QString &text);
     double currentValue() const;
-    static double compute(double lhs, double rhs, Op op);
+    void showError(const QString &message);
+    static bool compute(double lhs, double rhs, Op op, double &result);
+    static QChar opSymbol(Op op);
 
     Ui::Calculator *ui;
 
     double m_accumulator = 0.0;   ///< 第一个操作数 / 累计结果
     Op m_pendingOp = Op::None;    ///< 尚未参与计算的运算符
     bool m_freshOperand = true;   ///< true 表示下一次数字输入应替换显示屏内容
+    bool m_error = false;         ///< 是否处于错误提示状态
 
     static constexpr int kMaxInputLength = 16; ///< 单个操作数的最大显示长度
 };
