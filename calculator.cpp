@@ -86,7 +86,6 @@ void Calculator::initConnections()
     bind(QStringLiteral("buttonEquals"),    [this] { evaluate(); });
     bind(QStringLiteral("buttonClear"),     [this] { clearAll(); });
     bind(QStringLiteral("buttonBackspace"), [this] { backspace(); });
-    bind(QStringLiteral("buttonSign"),      [this] { toggleSign(); });
     bind(QStringLiteral("buttonPercent"),   [this] { applyPercent(); });
 }
 
@@ -289,28 +288,6 @@ void Calculator::clearAll()
     m_error = false;
     setDisplayText(QStringLiteral("0"));
     setExpressionText(QString());
-}
-
-void Calculator::toggleSign()
-{
-    if (m_error)
-        return;
-
-    // 刚按下运算符、还没有输入第二个操作数时，没有可翻转的对象
-    if (m_freshOperand && m_pendingOp != Op::None)
-        return;
-
-    QString text = ui->display->text();
-    if (text == QLatin1String("0"))
-        return;
-
-    if (text.startsWith(QLatin1Char('-')))
-        text.remove(0, 1);
-    else
-        text.prepend(QLatin1Char('-'));
-
-    setDisplayText(text);
-    m_freshOperand = false;
 }
 
 void Calculator::applyPercent()

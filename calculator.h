@@ -40,7 +40,6 @@ private:
     void evaluate();
     void backspace();
     void clearAll();
-    void toggleSign();
     void applyPercent();
 
     // ---- 内部工具 ----

@@ -77,10 +77,9 @@ QPushButton#buttonEquals:pressed {
     background-color: #e08a00;
 }
 
-/* 清除 / 退格 / 正负号 / 百分号：浅灰功能键。
-   注意：退格键在界面中与其他功能键同色，便于识别为“辅助”按键。 */
+/* 清除 / 退格 / 百分号：浅灰功能键，与数字键区分开 */
 QPushButton#buttonClear,
-QPushButton#buttonSign,
+QPushButton#buttonBackspace,
 QPushButton#buttonPercent {
     background-color: #a5a5a5;
     color: #1e1f26;
@@ -88,13 +87,13 @@ QPushButton#buttonPercent {
 }
 
 QPushButton#buttonClear:hover,
-QPushButton#buttonSign:hover,
+QPushButton#buttonBackspace:hover,
 QPushButton#buttonPercent:hover {
     background-color: #b8b8b8;
 }
 
 QPushButton#buttonClear:pressed,
-QPushButton#buttonSign:pressed,
+QPushButton#buttonBackspace:pressed,
 QPushButton#buttonPercent:pressed {
     background-color: #8f8f8f;
 }

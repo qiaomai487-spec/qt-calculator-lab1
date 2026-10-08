@@ -95,7 +95,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QPushButton" name="buttonSign">
+      <widget class="QPushButton" name="buttonBackspace">
        <property name="minimumSize">
         <size>
          <width>68</width>
@@ -103,10 +103,10 @@
         </size>
        </property>
        <property name="toolTip">
-        <string>正负号</string>
+        <string>退格（键盘：Backspace）</string>
        </property>
        <property name="text">
-        <string>±</string>
+        <string>⌫</string>
        </property>
       </widget>
      </item>
