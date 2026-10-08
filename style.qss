@@ -1,0 +1,100 @@
+/* ===== 计算器整体样式（Qt Style Sheet）===== */
+
+/* 窗口背景 */
+QWidget#Calculator {
+    background-color: #1e1f26;
+}
+
+/* 上方运算过程提示（小字、灰色、右对齐） */
+QLabel#expressionLabel {
+    color: #8a8f9c;
+    font-size: 15px;
+    padding-right: 6px;
+}
+
+/* 主显示屏 */
+QLineEdit#display {
+    background-color: #2b2d38;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 6px 16px;
+    font-size: 34px;
+}
+
+/* 所有按钮的公共样式 */
+QPushButton {
+    background-color: #3a3d4a;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 22px;
+}
+
+QPushButton:hover {
+    background-color: #474b5a;
+}
+
+QPushButton:pressed {
+    background-color: #5a5f72;
+}
+
+/* 运算符按钮：橙色 */
+QPushButton#buttonAdd,
+QPushButton#buttonSub,
+QPushButton#buttonMul,
+QPushButton#buttonDiv {
+    background-color: #ff9f0a;
+    color: #ffffff;
+    font-size: 26px;
+}
+
+QPushButton#buttonAdd:hover,
+QPushButton#buttonSub:hover,
+QPushButton#buttonMul:hover,
+QPushButton#buttonDiv:hover {
+    background-color: #ffb340;
+}
+
+QPushButton#buttonAdd:pressed,
+QPushButton#buttonSub:pressed,
+QPushButton#buttonMul:pressed,
+QPushButton#buttonDiv:pressed {
+    background-color: #e08a00;
+}
+
+/* 等于按钮：橙色的强调色 */
+QPushButton#buttonEquals {
+    background-color: #ff9f0a;
+    font-size: 26px;
+}
+
+QPushButton#buttonEquals:hover {
+    background-color: #ffb340;
+}
+
+QPushButton#buttonEquals:pressed {
+    background-color: #e08a00;
+}
+
+/* 清除 / 退格 / 正负号 / 百分号：浅灰功能键。
+   注意：退格键在界面中与其他功能键同色，便于识别为“辅助”按键。 */
+QPushButton#buttonClear,
+QPushButton#buttonSign,
+QPushButton#buttonPercent {
+    background-color: #a5a5a5;
+    color: #1e1f26;
+    font-size: 22px;
+}
+
+QPushButton#buttonClear:hover,
+QPushButton#buttonSign:hover,
+QPushButton#buttonPercent:hover {
+    background-color: #b8b8b8;
+}
+
+QPushButton#buttonClear:pressed,
+QPushButton#buttonSign:pressed,
+QPushButton#buttonPercent:pressed {
+    background-color: #8f8f8f;
+}
