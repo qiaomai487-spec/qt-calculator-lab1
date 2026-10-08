@@ -33,3 +33,6 @@ _exp1_extract/
 _report_preview*.pdf
 _report_text.txt
 video_build/
+
+# Word 打开文档时产生的临时所有者文件
+~$*
