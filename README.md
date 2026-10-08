@@ -50,8 +50,11 @@
 
 ### 方式一：Qt Creator
 
-用 Qt Creator 打开 `CMakeLists.txt` 或 `Calculator.pro`，选择 Qt 6 套件后直接
-“构建并运行”。
+用 Qt Creator 打开 **`Calculator.pro`**（本机装的 Qt Creator 9.0.0 + Qt 6.8.3
+MinGW，用 qmake 工程即可），选择桌面套件后直接“构建并运行”。
+
+> `CMakeLists.txt` 是为方便其他机器准备的。本机没有安装 CMake，Qt Creator
+> 里也没有配置 CMake 工具，所以请不要用它打开工程，否则会提示找不到 CMake。
 
 ### 方式二：命令行（qmake + MinGW）
 
@@ -64,6 +67,25 @@ mingw32-make
 
 > 若要在没有 Qt 环境的机器上运行，需要用 `windeployqt Calculator.exe`
 > 把所需的 DLL 一并复制到程序目录。
+
+## 常见问题
+
+**构建时提示 `Cannot find file: ..\qt???1\Calculator.pro`，或者干脆不生成 exe。**
+
+这是路径里有中文引起的：MinGW 的 `mingw32-make` 在中文版 Windows 上无法正确
+处理非 ASCII 路径，中文会变成 `???`，于是 make 找不到工程文件，编译一步都不会
+执行（所以也就没有程序可以运行）。本项目目录名含有“实验1”，属于这种情况。
+
+两种解决办法，任选其一：
+
+1. 让构建目录落在工程内部（本项目已经这么设置好了）。在 Qt Creator 里：
+   “项目” → “Build Settings” → “Build directory”改为
+   `C:\Users\12828\Documents\ChatGPT\qt实验1\build\qtcreator-debug`，
+   然后重新构建。此时相对路径是 `..\..\Calculator.pro`，不含中文，可以正常编译。
+2. 把整个工程放到纯英文路径下，例如 `C:\QtProjects\Calculator`，再重新打开。
+
+第 1 种办法改动最小，本项目的 `Calculator.pro.user` 已经改成这种配置，正常情况
+下直接打开 `Calculator.pro` 按“构建并运行”即可。
 
 ## 运行测试
 
