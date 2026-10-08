@@ -123,6 +123,7 @@ def build_git_slide(repo):
     draw = ImageDraw.Draw(slide)
     f_title = font(YAHEI, 40)
     f_mono = font(CONSOLA, 26)
+    f_msg = font(YAHEI, 25)      # Consolas 没有中文字形，提交说明必须用中文字体
     f_small = font(YAHEI, 22)
 
     draw.text((70, 50), "Git 提交历史（实验一）", font=f_title, fill=ACCENT)
@@ -130,7 +131,12 @@ def build_git_slide(repo):
 
     y = 150
     for line in git_log_lines(repo):
-        draw.text((70, y), line, font=f_mono, fill=TEXT)
+        parts = line.split("  ", 2)
+        short, date, message = parts if len(parts) == 3 else ("", "", line)
+        prefix = f"{short}  {date}  "
+        draw.text((70, y), prefix, font=f_mono, fill=MUTED)
+        draw.text((70 + draw.textlength(prefix, font=f_mono), y), message,
+                  font=f_msg, fill=TEXT)
         y += 46
 
     draw.text((70, HEIGHT - 70), "提交按开发阶段组织：功能实现 → 调试修复 → 测试 → 文档",
