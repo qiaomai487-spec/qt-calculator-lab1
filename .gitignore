@@ -30,3 +30,6 @@ Thumbs.db
 # ===== 临时文件 =====
 _exp1_ref.docx
 _exp1_extract/
+_report_preview*.pdf
+_report_text.txt
+video_build/
