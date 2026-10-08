@@ -58,6 +58,9 @@ static void shot(Calculator *c, const QString &dir, const QString &file)
 static Calculator *makeCalculator()
 {
     auto *c = new Calculator;
+    // 让窗口完成布局与绘制，但不真正显示到屏幕上；
+    // 这样既能拿到真实的系统字体渲染，又不会弹出窗口。
+    c->setAttribute(Qt::WA_DontShowOnScreen, true);
     c->resize(340, 520);
     c->show();
     QApplication::processEvents();

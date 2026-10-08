@@ -71,6 +71,8 @@ int main(int argc, char *argv[])
     manifest.setDevice(&manifestFile);
 
     Calculator calc;
+    // 完成布局与绘制但不真正显示窗口，保证用真实系统字体渲染
+    calc.setAttribute(Qt::WA_DontShowOnScreen, true);
     calc.resize(340, 520);
     calc.show();
     QApplication::processEvents();
