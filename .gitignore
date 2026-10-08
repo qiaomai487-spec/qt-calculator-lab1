@@ -1,0 +1,32 @@
+# ===== Qt 构建产物 =====
+build/
+debug/
+release/
+Makefile
+Makefile.*
+*.o
+*.obj
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+.qmake.stash
+*.pro.user
+*.pro.user.*
+*.exe
+*.dll
+
+# ===== CMake 构建产物 =====
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CMakeLists.txt.user*
+
+# ===== 编辑器 / 系统文件 =====
+.vscode/
+.idea/
+Thumbs.db
+
+# ===== 临时文件 =====
+_exp1_ref.docx
+_exp1_extract/
